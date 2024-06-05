@@ -2,3 +2,4 @@ build/
 vendor/
 bin/
 composer.lock
+.idea/

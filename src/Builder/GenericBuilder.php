@@ -10,6 +10,7 @@
 
 namespace NilPortugues\Sql\QueryBuilder\Builder;
 
+use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory;
 use NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery;
 use NilPortugues\Sql\QueryBuilder\Manipulation\QueryInterface;
@@ -88,9 +89,12 @@ class GenericBuilder implements BuilderInterface
     /**
      * Creates writers.
      */
-    public function __construct()
+    public function __construct(PlaceholderWriter $placeHolderWriter=null)
     {
-        $this->placeholderWriter = WriterFactory::createPlaceholderWriter();
+        $this->placeholderWriter = $placeHolderWriter;
+        if (null === $this->placeholderWriter) {
+            $this->placeholderWriter = WriterFactory::createPlaceholderWriter();
+        }
     }
 
     /**

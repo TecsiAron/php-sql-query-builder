@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\Union;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class UnionTest.
  */
-class UnionTest extends \PHPUnit_Framework_TestCase
+class UnionTest extends TestCase
 {
     /**
      * @var Union
@@ -31,49 +33,39 @@ class UnionTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Union();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetPartName()
     {
         $this->assertSame('UNION', $this->query->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedGetTable()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->getTable();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedGetWhere()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->getWhere();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedWhere()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->where();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetIntersectSelects()
     {
         $this->assertEquals(array(), $this->query->getUnions());

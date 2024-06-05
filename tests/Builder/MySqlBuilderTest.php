@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Builder;
 
 use NilPortugues\Sql\QueryBuilder\Builder\MySqlBuilder;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MySqlBuilderTest.
  */
-class MySqlBuilderTest extends \PHPUnit_Framework_TestCase
+class MySqlBuilderTest extends TestCase
 {
     /**
      * @var MySqlBuilder
@@ -26,7 +28,7 @@ class MySqlBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new MySqlBuilder();
     }
@@ -34,14 +36,12 @@ class MySqlBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->writer = null;
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWrapTableNames()
     {
         $query = new Select('user');
@@ -50,9 +50,7 @@ class MySqlBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->writer->write($query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWrapColumnNames()
     {
         $query = new Select('user', array('user_id', 'name'));
@@ -61,9 +59,7 @@ class MySqlBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->writer->write($query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWrapColumnAlias()
     {
         $query = new Select('user', array('userId' => 'user_id', 'name' => 'name'));

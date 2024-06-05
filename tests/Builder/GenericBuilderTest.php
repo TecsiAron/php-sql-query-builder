@@ -12,8 +12,10 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Builder;
 
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class GenericBuilderTest extends \PHPUnit_Framework_TestCase
+class GenericBuilderTest extends TestCase
 {
     /**
      * @var GenericBuilder
@@ -23,86 +25,68 @@ class GenericBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->writer = new GenericBuilder();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldCreateSelectObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Select';
         $this->assertInstanceOf($className, $this->writer->select());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldCreateInsertObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Insert';
         $this->assertInstanceOf($className, $this->writer->insert());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUpdateObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Update';
         $this->assertInstanceOf($className, $this->writer->update());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateDeleteObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Delete';
         $this->assertInstanceOf($className, $this->writer->delete());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateIntersectObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Intersect';
         $this->assertInstanceOf($className, $this->writer->intersect());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateMinusObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Minus';
         $this->assertInstanceOf($className, $this->writer->minus(new Select('table1'), new Select('table2')));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnionObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Union';
         $this->assertInstanceOf($className, $this->writer->union());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnionAllObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll';
         $this->assertInstanceOf($className, $this->writer->unionAll());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itCanAcceptATableNameForSelectInsertUpdateDeleteQueries()
     {
         $table = 'user';
@@ -118,9 +102,7 @@ class GenericBuilderTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itCanAcceptATableAndColumnsForSelect()
     {
         $table = 'user';
@@ -138,9 +120,7 @@ QUERY;
         $this->assertSame($expected, $this->writer->writeFormatted($select));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itCanAcceptATableAndValuesForInsert()
     {
         $table = 'user';
@@ -156,9 +136,7 @@ QUERY;
         $this->assertSame($expected, $this->writer->writeFormatted($insert));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itCanAcceptATableAndValuesForUpdate()
     {
         $table = 'user';
@@ -176,9 +154,7 @@ QUERY;
         $this->assertSame($expected, $this->writer->writeFormatted($update));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldOutputHumanReadableQuery()
     {
         $selectRole = $this->writer->select();
@@ -233,9 +209,7 @@ QUERY;
         $this->assertSame($expected, $this->writer->writeFormatted($select));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function it_should_inject_the_builder()
     {
         $query = $this->writer->select();
@@ -243,9 +217,7 @@ QUERY;
         $this->assertSame($this->writer, $query->getBuilder());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteWhenGettingSql()
     {
         $query = $this->writer->select()
@@ -256,9 +228,7 @@ QUERY;
         $this->assertSame($expected, $query->getSql());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteFormattedWhenGettingFormattedSql()
     {
         $query = $this->writer->select()
@@ -269,9 +239,7 @@ QUERY;
 
         $this->assertSame($expected, $query->getSql($formatted));
     }
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteSqlWhenCastToString()
     {
         $query = $this->writer->select()

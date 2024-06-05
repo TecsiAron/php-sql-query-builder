@@ -11,11 +11,13 @@
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\Insert;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class InsertTest.
  */
-class InsertTest extends \PHPUnit_Framework_TestCase
+class InsertTest extends TestCase
 {
     /**
      * @var Insert
@@ -24,22 +26,18 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Insert();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetPartName()
     {
         $this->assertSame('INSERT', $this->query->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetValues()
     {
         $values = ['user_id' => 1, 'username' => 'nilportugues'];
@@ -49,9 +47,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($values, $this->query->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetColumns()
     {
         $values = ['user_id' => 1, 'username' => 'nilportugues'];
@@ -63,9 +59,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $columns[0]);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetNullableValues()
     {
         $values = ['user_id' => 1, 'description' => null, 'isVisible' => false];

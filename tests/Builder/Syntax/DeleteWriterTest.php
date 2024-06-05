@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Delete;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DeleteWriterTest.
  */
-class DeleteWriterTest extends \PHPUnit_Framework_TestCase
+class DeleteWriterTest extends TestCase
 {
     /**
      * @var GenericBuilder
@@ -31,15 +33,13 @@ class DeleteWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new GenericBuilder();
         $this->query = new Delete();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteDeleteAllTableContentsQuery()
     {
         $this->query->setTable('user');
@@ -48,9 +48,7 @@ class DeleteWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteDeleteRowLimit1()
     {
         $this->query
@@ -64,9 +62,7 @@ class DeleteWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteCommentInQuery()
     {
         $this->query
@@ -80,9 +76,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteDeleteRowWithWhereConditionAndLimit1()
     {
         $this->query->setTable('user');

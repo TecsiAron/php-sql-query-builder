@@ -11,11 +11,13 @@
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\Update;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class UpdateTest.
  */
-class UpdateTest extends \PHPUnit_Framework_TestCase
+class UpdateTest extends TestCase
 {
     /**
      * @var Update
@@ -24,22 +26,18 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Update();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetPartName()
     {
         $this->assertSame('UPDATE', $this->query->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnLimit1()
     {
         $this->query->limit(1);
@@ -47,9 +45,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(1, $this->query->getLimitStart());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnValues()
     {
         $values = ['user_id' => 1];
@@ -59,9 +55,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($values, $this->query->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetNullableValues()
     {
         $values = ['user_id' => 1, 'description' => null, 'isVisible' => false];

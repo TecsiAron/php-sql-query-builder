@@ -11,11 +11,13 @@
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PlaceholderWriterTest.
  */
-class PlaceholderWriterTest extends \PHPUnit_Framework_TestCase
+class PlaceholderWriterTest extends TestCase
 {
     /**
      * @var PlaceholderWriter
@@ -25,32 +27,26 @@ class PlaceholderWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new PlaceholderWriter();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAddValueAndReturnPlaceholder()
     {
         $result = $this->writer->add(1);
         $this->assertEquals(':v1', $result);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAddValueAndGetReturnsArrayHoldingPlaceholderData()
     {
         $this->writer->add(1);
         $this->assertEquals(array(':v1' => 1), $this->writer->get());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldTranslatePhpNullToSqlNullValue()
     {
         $this->writer->add('');
@@ -59,9 +55,7 @@ class PlaceholderWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(':v1' => 'NULL', ':v2' => 'NULL'), $this->writer->get());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldTranslatePhpBoolToSqlBoolValue()
     {
         $this->writer->add(true);

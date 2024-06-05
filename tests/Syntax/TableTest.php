@@ -11,33 +11,29 @@
 namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class TableTest.
  */
-class TableTest extends \PHPUnit_Framework_TestCase
+class TableTest extends TestCase
 {
-    /**
-     * @test
-     */
+#[Test]
     public function testConstruct()
     {
         $table = new Table('user');
         $this->assertEquals('user', $table->getName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnNullIfTableNameHasNoAlias()
     {
         $table = new Table('user');
         $this->assertNull($table->getAlias());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnAliasIfTableNameAliasHasBeenSet()
     {
         $table = new Table('user');
@@ -45,27 +41,21 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('u', $table->getAlias());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnNullIfSchemaNotSet()
     {
         $table = new Table('user');
         $this->assertNull($table->getSchema());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnSchemaIfSchemaHasValue()
     {
         $table = new Table('user', 'website');
         $this->assertEquals('website', $table->getSchema());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnTheCompleteName()
     {
         $table = new Table('user');
@@ -76,18 +66,14 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('website.user AS p', $table->getCompleteName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnFalseOnIsView()
     {
         $table = new Table('user_status');
         $this->assertFalse($table->isView());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnTrueOnIsView()
     {
         $table = new Table('user_status');

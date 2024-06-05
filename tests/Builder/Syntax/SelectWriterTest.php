@@ -14,11 +14,13 @@ use NilPortugues\Sql\QueryBuilder\Syntax\Column;
 use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class SelectWriterTest.
  */
-class SelectWriterTest extends \PHPUnit_Framework_TestCase
+class SelectWriterTest extends TestCase
 {
     /**
      * @var GenericBuilder
@@ -38,15 +40,13 @@ class SelectWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new GenericBuilder();
         $this->query = new Select();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeCloneableWithoutKeepingReferences()
     {
         $query1 = new Select('user');
@@ -56,9 +56,7 @@ class SelectWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($query1->getTable() == $query2->getTable());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeConstructedWithConstructor()
     {
         $this->query = new Select('user');
@@ -68,9 +66,7 @@ class SelectWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteCommentInQuery()
     {
         $this->query = new Select('user');
@@ -84,20 +80,16 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionWhenGettingColumnsButNoTableIsSet()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
 
         $this->query = new Select();
         $this->query->getColumns();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeConstructedWithConstructorWithColumns()
     {
         $this->query = new Select('user', array('user_id', 'name'));
@@ -107,9 +99,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSelectAll()
     {
         $this->query->setTable('user');
@@ -119,9 +109,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSelectAllDistinct()
     {
         $this->query->setTable('user')->distinct();
@@ -131,9 +119,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSelectAllWithLimit1()
     {
         $this->query->setTable('user')->limit(1);
@@ -146,9 +132,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSelectAllWithLimit1Offset2()
     {
         $this->query->setTable('user')->limit(1, 2);
@@ -161,9 +145,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSelectAllGetFirst20()
     {
         $this->query->setTable('user')->limit(0, 20);
@@ -176,9 +158,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAllowColumnAlias()
     {
         $this->query
@@ -196,9 +176,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAllowColumnOrder()
     {
         $this->query
@@ -210,9 +188,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAllowColumnOrderUsingColumnAlias()
     {
         $tableName = 'user';
@@ -235,9 +211,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoALeftJoin()
     {
         $this->query
@@ -249,9 +223,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoARightJoin()
     {
         $this->query
@@ -263,9 +235,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoAInnerJoin()
     {
         $this->query
@@ -277,9 +247,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoACrossJoin()
     {
         $this->query
@@ -291,9 +259,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoALeftJoinWithOrderByOnJoinedTable()
     {
         $this->query
@@ -317,9 +283,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoAJoin()
     {
         $this->query
@@ -331,9 +295,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoAJoinWithOrderByOnJoinedTable()
     {
         $this->query
@@ -357,9 +319,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoAJoinWithCustomColumns()
     {
         $this->query
@@ -384,9 +344,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToDoAnAddWithMultipleJoins()
     {
         $this->query->setTable('user');
@@ -410,9 +368,7 @@ SQL;
         $this->assertSame($expected, $this->writer->write($this->query));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToOn()
     {
         $this->query
@@ -444,9 +400,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToCountTotalRows()
     {
         $this->query
@@ -464,9 +418,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToCountTotalRowsSettingDefaultColumn()
     {
         $this->query
@@ -484,9 +436,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToCountTotalRowsSettingDefaultColumnWithAlias()
     {
         $this->query
@@ -504,9 +454,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToGroupByOperator()
     {
         $this->query
@@ -532,12 +480,10 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionInvalidHavingConjunction()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
 
         $this->query
             ->setTable('user')
@@ -553,9 +499,7 @@ SQL;
             ->having('AAAAAAAAAAAAAAAA');
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToSetHavingOperatorToOr()
     {
         $this->query
@@ -581,9 +525,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldAllowSelectQueryToActAsAColumn()
     {
         $table1 = new Select('Table1');
@@ -605,9 +547,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteJoin()
     {
         $this->query

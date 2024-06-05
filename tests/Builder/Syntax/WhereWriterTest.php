@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WhereWriterTest.
  */
-class WhereWriterTest extends \PHPUnit_Framework_TestCase
+class WhereWriterTest extends TestCase
 {
     /**
      * @var GenericBuilder
@@ -31,15 +33,13 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new GenericBuilder();
         $this->query = new Select();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldAllowWhereConditions()
     {
         $this->query
@@ -55,9 +55,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldAllowWhereOrConditions()
     {
         $this->query
@@ -75,9 +73,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementNotBeEqualTo()
     {
         $column = 'user_id';
@@ -95,9 +91,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeGreaterThan()
     {
         $column = 'user_id';
@@ -115,9 +109,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeGreaterThanOrEqual()
     {
         $column = 'user_id';
@@ -135,9 +127,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeLessThan()
     {
         $column = 'user_id';
@@ -155,9 +145,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeLessThanOrEqual()
     {
         $column = 'user_id';
@@ -175,9 +163,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeLike()
     {
         $column = 'user_id';
@@ -195,9 +181,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementBeNotLike()
     {
         $column = 'user_id';
@@ -215,9 +199,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementAccumulateInConditions()
     {
         $column = 'user_id';
@@ -234,9 +216,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementAccumulateNotInConditions()
     {
         $column = 'user_id';
@@ -253,9 +233,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementWriteBetweenConditions()
     {
         $column = 'user_id';
@@ -272,9 +250,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementWriteNotBetweenConditions()
     {
         $column = 'user_id';
@@ -291,9 +267,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementSetNullValueCondition()
     {
         $column = 'user_id';
@@ -310,9 +284,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementSetIsNotNullValueCondition()
     {
         $column = 'user_id';
@@ -329,9 +301,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementSetBitClauseValueCondition()
     {
         $column = 'user_id';
@@ -348,9 +318,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToLetWhereStatementSubconditions()
     {
         $column = 'user_id';
@@ -364,7 +332,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->lessThan($column, 10)
             ->greaterThan($column, 100);
 
-        $expected = 'SELECT user.* FROM user WHERE (user.user_id = :v1) AND (user.user_id = :v2) '.
+        $expected = 'SELECT user.* FROM user WHERE (user.user_id = :v1) AND (user.user_id = :v2) ' .
             'AND ((user.user_id < :v3) OR (user.user_id > :v4))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -373,9 +341,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldAllowSelectWhereButNotWriteCondition()
     {
         $table1 = new Select('Table1');
@@ -386,9 +352,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->writer->write($table1));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldAllowHavingConditions()
     {
         $this->query
@@ -404,9 +368,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToUseSelectStatementsInWhere()
     {
         $selectRole = new Select();
@@ -423,7 +385,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->where()
             ->equals('role_id', $selectRole);
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE ' .
             '(user.role_id = (SELECT role.role_name FROM role WHERE (role.role_id = :v1) LIMIT :v2, :v3))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -432,9 +394,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToSelectWithFullMatchSearchUsingMatchInNaturalMode()
     {
         $this->query
@@ -443,7 +403,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->where()
             ->match(array('username', 'email'), array('Nil'));
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user ' .
             'WHERE (MATCH(user.username, user.email) AGAINST(:v1))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -452,9 +412,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToSelectWithFullMatchSearchUsingMatchInBooleanMode()
     {
         $this->query
@@ -463,7 +421,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->where()
             ->matchBoolean(array('username', 'email'), array('Nil'));
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user ' .
             'WHERE (MATCH(user.username, user.email) AGAINST(:v1 IN BOOLEAN MODE))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -472,9 +430,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToSelectWithFullMatchSearchUsingMatchInQueryExpansionMode()
     {
         $this->query
@@ -483,7 +439,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->where()
             ->matchWithQueryExpansion(array('username', 'email'), array('Nil'));
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user ' .
             'WHERE (MATCH(user.username, user.email) AGAINST(:v1 WITH QUERY EXPANSION))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -492,9 +448,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToDoWhereExists()
     {
         $select = new Select('banned_user');
@@ -507,7 +461,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->exists($select)
             ->equals('user', 'Nil');
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE (user.user = :v1) AND '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE (user.user = :v1) AND ' .
             'EXISTS (SELECT banned_user.* FROM banned_user WHERE (banned_user.user_id = :v2))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -516,9 +470,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldBeAbleToDoWhereNotExists()
     {
         $select = new Select('banned_user');
@@ -531,7 +483,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
             ->notExists($select)
             ->equals('user', 'Nil');
 
-        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE (user.user = :v1) AND '.
+        $expected = 'SELECT user.user_id, user.role_id FROM user WHERE (user.user = :v1) AND ' .
             'NOT EXISTS (SELECT banned_user.* FROM banned_user WHERE (banned_user.user_id = :v2))';
 
         $this->assertSame($expected, $this->writer->write($this->query));
@@ -540,9 +492,7 @@ class WhereWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function itShouldAllowWhereConditionAsLiteral()
     {
         $this->query

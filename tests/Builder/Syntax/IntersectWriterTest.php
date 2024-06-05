@@ -13,11 +13,13 @@ use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\IntersectWriter;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Intersect;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class IntersectWriterTest.
  */
-class IntersectWriterTest extends \PHPUnit_Framework_TestCase
+class IntersectWriterTest extends TestCase
 {
     /**
      * @var GenericBuilder
@@ -32,21 +34,19 @@ class IntersectWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->intersectWriter = new IntersectWriter(new GenericBuilder());
         $this->writer = new GenericBuilder();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->intersectWriter = null;
         $this->writer = null;
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteIntersect()
     {
         $intersect = new Intersect();
@@ -62,9 +62,7 @@ SQL;
         $this->assertEquals($expected, $this->intersectWriter->write($intersect));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteIntersectFromGenericBuilder()
     {
         $intersect = $this->writer->intersect();
@@ -80,9 +78,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->write($intersect));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldNotResetPlaceholders()
     {
         $select1 = (new Select('table1'))

@@ -10,10 +10,13 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class BaseQueryTest.
  */
-class BaseQueryTest extends \PHPUnit_Framework_TestCase
+class BaseQueryTest extends TestCase
 {
     /**
      * @var \NilPortugues\Tests\Sql\QueryBuilder\Manipulation\Resources\DummyQuery
@@ -28,7 +31,7 @@ class BaseQueryTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Resources\DummyQuery();
         $this->query->setTable('tablename');
@@ -37,22 +40,18 @@ class BaseQueryTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->query = null;
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToSetTableName()
     {
         $this->assertSame('tablename', $this->query->getTable()->getName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetWhere()
     {
         $this->assertNull($this->query->getWhere());
@@ -61,9 +60,7 @@ class BaseQueryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf($this->whereClass, $this->query->getWhere());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetWhereOperator()
     {
         $this->assertSame('AND', $this->query->getWhereOperator());

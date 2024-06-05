@@ -12,20 +12,20 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Syntax\Column;
 use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class OrderByTest.
  */
-class OrderByTest extends \PHPUnit_Framework_TestCase
+class OrderByTest extends TestCase
 {
     /**
      * @var string
      */
     protected $columnClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Column';
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldConstructOrderBy()
     {
         $column = new Column('registration_date', 'user');
@@ -35,9 +35,7 @@ class OrderByTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(OrderBy::ASC, $order->getDirection());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetOrderByDirection()
     {
         $column = new Column('registration_date', 'user');
@@ -49,15 +47,13 @@ class OrderByTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(OrderBy::DESC, $order->getDirection());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionIfDirectionNotValid()
     {
         $column = new Column('registration_date', 'user');
         $order = new OrderBy($column, OrderBy::ASC);
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
         $order->setDirection('this is not a valid direction');
     }
 }

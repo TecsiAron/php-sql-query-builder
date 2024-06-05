@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
 use NilPortugues\Sql\QueryBuilder\Syntax\Column;
 use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ColumnTest.
  */
-class ColumnTest extends \PHPUnit_Framework_TestCase
+class ColumnTest extends TestCase
 {
     /**
      * @var string
@@ -28,9 +30,7 @@ class ColumnTest extends \PHPUnit_Framework_TestCase
      */
     protected $queryException = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldReturnPartName()
     {
         $column = new Column('id', 'user');
@@ -38,9 +38,7 @@ class ColumnTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('COLUMN', $column->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldConstruct()
     {
         $column = new Column('id', 'user');
@@ -50,9 +48,7 @@ class ColumnTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('user', $column->getTable()->getName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetColumnName()
     {
         $column = new Column('id', 'user');
@@ -61,9 +57,7 @@ class ColumnTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('user_id', $column->getName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetTableName()
     {
         $tableName = 'user';
@@ -75,21 +69,17 @@ class ColumnTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($tableName, $column->getTable()->getName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetAliasName()
     {
         $column = new Column('user_id', 'user', 'userId');
         $this->assertEquals('userId', $column->getAlias());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionIfAliasOnAllSelection()
     {
-        $this->setExpectedException($this->queryException);
+        $this->expectException($this->queryException);
 
         new Column('*', 'user', 'userId');
     }

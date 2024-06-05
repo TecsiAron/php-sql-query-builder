@@ -15,11 +15,13 @@ use NilPortugues\Sql\QueryBuilder\Builder\Syntax\ColumnWriter;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
 use NilPortugues\Sql\QueryBuilder\Syntax\Column;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ColumnWriterTest.
  */
-class ColumnWriterTest extends \PHPUnit_Framework_TestCase
+class ColumnWriterTest extends TestCase
 {
     /**
      * @var ColumnWriter
@@ -39,16 +41,14 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->writer = new GenericBuilder();
         $this->query = new Select();
         $this->columnWriter = new ColumnWriter(new GenericBuilder(), new PlaceholderWriter());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteColumn()
     {
         $column = new Column('user_id', 'user');
@@ -58,9 +58,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('user.user_id', $result);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteValueAsColumns()
     {
         $select = new Select('user');
@@ -71,9 +69,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $result[0]);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteFuncAsColumns()
     {
         $select = new Select('user');
@@ -84,9 +80,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $result[0]);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteColumnWithAlias()
     {
         $column = new Column('user_id', 'user', 'userId');
@@ -96,9 +90,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('user.user_id AS "userId"', $result);
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteColumnAsASelectStatement()
     {
         $selectRole = new Select();
@@ -128,9 +120,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteColumnAsAValueStatement()
     {
         $this->query
@@ -147,9 +137,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteColumnAsAFuncWithBracketsStatement()
     {
         $this->query
@@ -166,9 +154,7 @@ class ColumnWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->writer->getValues());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldBeAbleToWriteColumnAsAFuncWithoutBracketsStatement()
     {
         $this->query

@@ -13,11 +13,13 @@ use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\UnionWriter;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Union;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class UnionWriterTest.
  */
-class UnionWriterTest extends \PHPUnit_Framework_TestCase
+class UnionWriterTest extends TestCase
 {
     /**
      * @var UnionWriter
@@ -32,21 +34,19 @@ class UnionWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->unionWriter = new UnionWriter(new GenericBuilder());
         $this->writer = new GenericBuilder();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->unionWriter = null;
         $this->writer = null;
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteUnion()
     {
         $union = new Union();
@@ -62,9 +62,7 @@ SQL;
         $this->assertEquals($expected, $this->unionWriter->write($union));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteUnionFromGenericBuilder()
     {
         $unionAll = $this->writer->union();
@@ -80,9 +78,7 @@ SQL;
         $this->assertEquals($expected, $this->writer->write($unionAll));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldNotResetPlaceholders()
     {
         $select1 = (new Select('table1'))

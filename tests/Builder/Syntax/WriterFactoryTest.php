@@ -13,11 +13,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WriterFactoryTest.
  */
-class WriterFactoryTest extends \PHPUnit_Framework_TestCase
+class WriterFactoryTest extends TestCase
 {
     /**
      * @var PlaceholderWriter
@@ -32,15 +34,13 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->writer = new GenericBuilder();
         $this->placeholder = new PlaceholderWriter();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateColumnWriter()
     {
         $writer = WriterFactory::createColumnWriter($this->writer, $this->placeholder);
@@ -48,9 +48,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\ColumnWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateWhereWriter()
     {
         $writer = WriterFactory::createWhereWriter($this->writer, $this->placeholder);
@@ -58,9 +56,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\WhereWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateSelectWriter()
     {
         $writer = WriterFactory::createSelectWriter($this->writer, $this->placeholder);
@@ -68,9 +64,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\SelectWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateInsertWriter()
     {
         $writer = WriterFactory::createInsertWriter($this->writer, $this->placeholder);
@@ -78,9 +72,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\InsertWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUpdateWriter()
     {
         $writer = WriterFactory::createUpdateWriter($this->writer, $this->placeholder);
@@ -88,9 +80,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\UpdateWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateDeleteWriter()
     {
         $writer = WriterFactory::createDeleteWriter($this->writer, $this->placeholder);
@@ -98,9 +88,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\DeleteWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreatePlaceholderWriter()
     {
         $writer = WriterFactory::createPlaceholderWriter();
@@ -108,9 +96,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateIntersectWriter()
     {
         $writer = WriterFactory::createIntersectWriter($this->writer);
@@ -118,9 +104,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\IntersectWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateMinusWriter()
     {
         $writer = WriterFactory::createMinusWriter($this->writer);
@@ -128,9 +112,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\MinusWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnion()
     {
         $writer = WriterFactory::createUnionWriter($this->writer);
@@ -138,9 +120,7 @@ class WriterFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('NilPortugues\Sql\QueryBuilder\Builder\Syntax\UnionWriter', \get_class($writer));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnionAll()
     {
         $writer = WriterFactory::createUnionAllWriter($this->writer);

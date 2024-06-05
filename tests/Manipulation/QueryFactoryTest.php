@@ -12,78 +12,64 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\QueryFactory;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class QueryFactoryTest.
  */
-class QueryFactoryTest extends \PHPUnit_Framework_TestCase
+class QueryFactoryTest extends TestCase
 {
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateSelectObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Select';
         $this->assertInstanceOf($className, QueryFactory::createSelect());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateInsertObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Insert';
         $this->assertInstanceOf($className, QueryFactory::createInsert());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUpdateObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Update';
         $this->assertInstanceOf($className, QueryFactory::createUpdate());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateDeleteObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Delete';
         $this->assertInstanceOf($className, QueryFactory::createDelete());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateMinusObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Minus';
         $this->assertInstanceOf($className, QueryFactory::createMinus(new Select('table1'), new Select('table2')));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnionObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Union';
         $this->assertInstanceOf($className, QueryFactory::createUnion());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateUnionAllObject()
     {
         $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll';
         $this->assertInstanceOf($className, QueryFactory::createUnionAll());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldCreateWhereObject()
     {
         $mockClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryInterface';

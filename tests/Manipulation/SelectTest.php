@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
 use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class SelectTest.
  */
-class SelectTest extends \PHPUnit_Framework_TestCase
+class SelectTest extends TestCase
 {
     /**
      * @var Select
@@ -25,21 +27,17 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Select();
     }
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetPartName()
     {
         $this->assertSame('SELECT', $this->query->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldSetParentOrderByAlso()
     {
         $columns = [

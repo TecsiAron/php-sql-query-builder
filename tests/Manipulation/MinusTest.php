@@ -12,11 +12,13 @@ namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
 use NilPortugues\Sql\QueryBuilder\Manipulation\Minus;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MinusTest.
  */
-class MinusTest extends \PHPUnit_Framework_TestCase
+class MinusTest extends TestCase
 {
     /**
      * @var Minus
@@ -31,49 +33,39 @@ class MinusTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->query = new Minus(new Select('user'), new Select('user_email'));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetPartName()
     {
         $this->assertSame('MINUS', $this->query->partName());
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedGetTable()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->getTable();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedGetWhere()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->getWhere();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldThrowExceptionForUnsupportedWhere()
     {
-        $this->setExpectedException($this->exceptionClass);
+        $this->expectException($this->exceptionClass);
         $this->query->where();
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldGetMinusSelects()
     {
         $this->assertEquals(new Select('user'), $this->query->getFirst());

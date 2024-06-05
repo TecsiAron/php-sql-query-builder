@@ -14,11 +14,13 @@ use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 use NilPortugues\Sql\QueryBuilder\Builder\Syntax\MinusWriter;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Minus;
 use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MinusWriterTest.
  */
-class MinusWriterTest extends \PHPUnit_Framework_TestCase
+class MinusWriterTest extends TestCase
 {
     /**
      * @var MinusWriter
@@ -33,21 +35,19 @@ class MinusWriterTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->minusWriter = new MinusWriter(new GenericBuilder());
         $this->writer = new GenericBuilder();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->minusWriter = null;
         $this->writer = null;
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteMinus()
     {
         $minus = new Minus(new Select('user'), new Select('user_email'));
@@ -60,9 +60,7 @@ SQL;
         $this->assertEquals($expected, $this->minusWriter->write($minus));
     }
 
-    /**
-     * @test
-     */
+#[Test]
     public function itShouldWriteUnionAllFromGenericBuilder()
     {
         $minus = $this->writer->minus(new Select('user'), new Select('user_email'));

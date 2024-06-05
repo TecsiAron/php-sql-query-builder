@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Insert;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Insert;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -33,7 +33,7 @@ class InsertWriterTest extends TestCase
     /**
      * @var string
      */
-    private $exceptionClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    private $exceptionClass = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
     /**
      *

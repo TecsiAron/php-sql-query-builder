@@ -10,7 +10,7 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

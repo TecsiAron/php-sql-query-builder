@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\QueryPartInterface;
+use EdituraEDU\Sql\QueryBuilder\Syntax\QueryPartInterface;
 
 /**
  * Class Minus.
@@ -48,7 +48,7 @@ class Minus implements QueryInterface, QueryPartInterface
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Select
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Select
      */
     public function getFirst()
     {
@@ -56,7 +56,7 @@ class Minus implements QueryInterface, QueryPartInterface
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Select
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Select
      */
     public function getSecond()
     {
@@ -66,7 +66,7 @@ class Minus implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Table
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Table
      */
     public function getTable()
     {
@@ -76,7 +76,7 @@ class Minus implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function getWhere()
     {
@@ -86,7 +86,7 @@ class Minus implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function where()
     {

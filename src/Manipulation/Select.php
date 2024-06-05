@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\SyntaxFactory;
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
-use NilPortugues\Sql\QueryBuilder\Syntax\Where;
-use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
+use EdituraEDU\Sql\QueryBuilder\Syntax\SyntaxFactory;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Where;
+use EdituraEDU\Sql\QueryBuilder\Syntax\OrderBy;
 
 /**
  * Class Select.
@@ -237,7 +237,7 @@ class Select extends AbstractBaseQuery
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Column
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Column
      *
      * @throws QueryException
      */

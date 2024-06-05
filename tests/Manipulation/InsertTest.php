@@ -10,7 +10,7 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\Insert;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Insert;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -56,7 +56,7 @@ class InsertTest extends TestCase
 
         $columns = $this->query->getColumns();
 
-        $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $columns[0]);
+        $this->assertInstanceOf('EdituraEDU\Sql\QueryBuilder\Syntax\Column', $columns[0]);
     }
 
 #[Test]

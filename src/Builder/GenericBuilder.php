@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Builder;
+namespace EdituraEDU\Sql\QueryBuilder\Builder;
 
-use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
-use NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory;
-use NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery;
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryInterface;
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryFactory;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
+use EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\AbstractBaseQuery;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryInterface;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryFactory;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
 
 /**
  * Class Generic.
@@ -27,14 +27,14 @@ class GenericBuilder implements BuilderInterface
     /**
      * The placeholder parameter bag.
      *
-     * @var \NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter
+     * @var \EdituraEDU\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter
      */
     protected $placeholderWriter;
 
     /**
      * The Where writer.
      *
-     * @var \NilPortugues\Sql\QueryBuilder\Builder\Syntax\WhereWriter
+     * @var \EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WhereWriter
      */
     protected $whereWriter;
 
@@ -60,14 +60,14 @@ class GenericBuilder implements BuilderInterface
      * @var array
      */
     protected $queryWriterArray = [
-        'SELECT' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createSelectWriter',
-        'INSERT' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createInsertWriter',
-        'UPDATE' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUpdateWriter',
-        'DELETE' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createDeleteWriter',
-        'INTERSECT' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createIntersectWriter',
-        'MINUS' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createMinusWriter',
-        'UNION' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionWriter',
-        'UNION ALL' => '\NilPortugues\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionAllWriter',
+        'SELECT' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createSelectWriter',
+        'INSERT' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createInsertWriter',
+        'UPDATE' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUpdateWriter',
+        'DELETE' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createDeleteWriter',
+        'INTERSECT' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createIntersectWriter',
+        'MINUS' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createMinusWriter',
+        'UNION' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionWriter',
+        'UNION ALL' => '\EdituraEDU\Sql\QueryBuilder\Builder\Syntax\WriterFactory::createUnionAllWriter',
     ];
 
     /**
@@ -101,7 +101,7 @@ class GenericBuilder implements BuilderInterface
      * @param string $table
      * @param array  $columns
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Select
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Select
      */
     public function select($table = null, array $columns = null)
     {
@@ -109,9 +109,9 @@ class GenericBuilder implements BuilderInterface
     }
 
     /**
-     * @param \NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery
+     * @param \EdituraEDU\Sql\QueryBuilder\Manipulation\AbstractBaseQuery
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\AbstractBaseQuery
      */
     protected function injectBuilder(AbstractBaseQuery $query)
     {
@@ -143,7 +143,7 @@ class GenericBuilder implements BuilderInterface
     /**
      * @param string $table
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Delete
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Delete
      */
     public function delete($table = null)
     {
@@ -151,7 +151,7 @@ class GenericBuilder implements BuilderInterface
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Intersect
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Intersect
      */
     public function intersect()
     {
@@ -159,7 +159,7 @@ class GenericBuilder implements BuilderInterface
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Union
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Union
      */
     public function union()
     {
@@ -167,7 +167,7 @@ class GenericBuilder implements BuilderInterface
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\UnionAll
      */
     public function unionAll()
     {
@@ -175,10 +175,10 @@ class GenericBuilder implements BuilderInterface
     }
 
     /**
-     * @param \NilPortugues\Sql\QueryBuilder\Manipulation\Select $first
-     * @param \NilPortugues\Sql\QueryBuilder\Manipulation\Select $second
+     * @param \EdituraEDU\Sql\QueryBuilder\Manipulation\Select $first
+     * @param \EdituraEDU\Sql\QueryBuilder\Manipulation\Select $second
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Manipulation\Minus
+     * @return \EdituraEDU\Sql\QueryBuilder\Manipulation\Minus
      */
     public function minus(Select $first, Select $second)
     {

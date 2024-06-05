@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
 /**
  * Interface QueryInterface.
@@ -21,17 +21,17 @@ interface QueryInterface
     public function partName();
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Table
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Table
      */
     public function getTable();
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function getWhere();
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function where();
 }

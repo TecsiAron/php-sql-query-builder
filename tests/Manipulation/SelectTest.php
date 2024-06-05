@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
-use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Syntax\OrderBy;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

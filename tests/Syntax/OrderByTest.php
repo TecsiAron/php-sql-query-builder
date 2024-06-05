@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\OrderBy;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +23,7 @@ class OrderByTest extends TestCase
     /**
      * @var string
      */
-    protected $columnClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Column';
+    protected $columnClass = '\EdituraEDU\Sql\QueryBuilder\Syntax\Column';
 
 #[Test]
     public function itShouldConstructOrderBy()

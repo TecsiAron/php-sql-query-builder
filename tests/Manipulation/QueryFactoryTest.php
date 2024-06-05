@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryFactory;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryFactory;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -23,62 +23,62 @@ class QueryFactoryTest extends TestCase
 #[Test]
     public function itShouldCreateSelectObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Select';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Select';
         $this->assertInstanceOf($className, QueryFactory::createSelect());
     }
 
 #[Test]
     public function itShouldCreateInsertObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Insert';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Insert';
         $this->assertInstanceOf($className, QueryFactory::createInsert());
     }
 
 #[Test]
     public function itShouldCreateUpdateObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Update';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Update';
         $this->assertInstanceOf($className, QueryFactory::createUpdate());
     }
 
 #[Test]
     public function itShouldCreateDeleteObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Delete';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Delete';
         $this->assertInstanceOf($className, QueryFactory::createDelete());
     }
 
 #[Test]
     public function itShouldCreateMinusObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Minus';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Minus';
         $this->assertInstanceOf($className, QueryFactory::createMinus(new Select('table1'), new Select('table2')));
     }
 
 #[Test]
     public function itShouldCreateUnionObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Union';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Union';
         $this->assertInstanceOf($className, QueryFactory::createUnion());
     }
 
 #[Test]
     public function itShouldCreateUnionAllObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\UnionAll';
         $this->assertInstanceOf($className, QueryFactory::createUnionAll());
     }
 
 #[Test]
     public function itShouldCreateWhereObject()
     {
-        $mockClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryInterface';
+        $mockClass = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryInterface';
 
         $query = $this->getMockBuilder($mockClass)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $className = '\NilPortugues\Sql\QueryBuilder\Syntax\Where';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Syntax\Where';
         $this->assertInstanceOf($className, QueryFactory::createWhere($query));
     }
 }

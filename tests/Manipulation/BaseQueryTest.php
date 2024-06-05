@@ -26,7 +26,7 @@ class BaseQueryTest extends TestCase
     /**
      * @var string
      */
-    private $whereClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Where';
+    private $whereClass = '\EdituraEDU\Sql\QueryBuilder\Syntax\Where';
 
     /**
      *

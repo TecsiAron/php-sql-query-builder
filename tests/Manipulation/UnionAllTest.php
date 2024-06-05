@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\UnionAll;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -28,7 +28,7 @@ class UnionAllTest extends TestCase
     /**
      * @var string
      */
-    private $exceptionClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    private $exceptionClass = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
     /**
      *

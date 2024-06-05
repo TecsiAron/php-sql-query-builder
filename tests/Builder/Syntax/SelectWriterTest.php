@@ -10,10 +10,10 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\OrderBy;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ class SelectWriterTest extends TestCase
     /**
      * @var string
      */
-    private $exceptionClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    private $exceptionClass = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
     /**
      *

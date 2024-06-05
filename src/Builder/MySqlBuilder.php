@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Builder;
+namespace EdituraEDU\Sql\QueryBuilder\Builder;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
 
 /**
  * Class MySqlBuilder.

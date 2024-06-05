@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -23,12 +23,12 @@ class ColumnTest extends TestCase
     /**
      * @var string
      */
-    protected $tableClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Table';
+    protected $tableClass = '\EdituraEDU\Sql\QueryBuilder\Syntax\Table';
 
     /**
      * @var string
      */
-    protected $queryException = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    protected $queryException = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
 #[Test]
     public function itShouldReturnPartName()

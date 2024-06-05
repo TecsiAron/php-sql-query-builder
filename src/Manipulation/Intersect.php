@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\QueryPartInterface;
+use EdituraEDU\Sql\QueryBuilder\Syntax\QueryPartInterface;
 
 /**
  * Class Intersect.
@@ -55,7 +55,7 @@ class Intersect implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Table
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Table
      */
     public function getTable()
     {
@@ -65,7 +65,7 @@ class Intersect implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function getWhere()
     {
@@ -75,7 +75,7 @@ class Intersect implements QueryInterface, QueryPartInterface
     /**
      * @throws QueryException
      *
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function where()
     {

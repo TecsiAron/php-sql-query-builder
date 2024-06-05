@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Update;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Update;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -38,7 +38,7 @@ class UpdateWriterTest extends TestCase
     /**
      * @var string
      */
-    private $exceptionClass = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    private $exceptionClass = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
     /**
      *

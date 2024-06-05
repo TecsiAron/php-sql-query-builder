@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Builder\Syntax;
+namespace EdituraEDU\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryException;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Update;
-use NilPortugues\Sql\QueryBuilder\Syntax\SyntaxFactory;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Update;
+use EdituraEDU\Sql\QueryBuilder\Syntax\SyntaxFactory;
 
 /**
  * Class UpdateWriter.

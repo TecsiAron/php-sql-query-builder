@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Builder\Syntax;
+namespace EdituraEDU\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\Intersect;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Intersect;
 
 /**
  * Class IntersectWriter.

@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Syntax;
+namespace EdituraEDU\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryException;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException;
 
 /**
  * Class Column.

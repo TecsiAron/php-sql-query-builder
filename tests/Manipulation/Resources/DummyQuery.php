@@ -10,7 +10,7 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Manipulation\Resources;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\AbstractBaseQuery;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\AbstractBaseQuery;
 
 /**
  * Class DummyQuery.

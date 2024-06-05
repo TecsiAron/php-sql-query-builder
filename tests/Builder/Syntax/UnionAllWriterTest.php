@@ -9,10 +9,10 @@
  */
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
-use NilPortugues\Sql\QueryBuilder\Builder\Syntax\UnionAllWriter;
-use NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Builder\Syntax\UnionAllWriter;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\UnionAll;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

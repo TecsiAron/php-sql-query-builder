@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder;
 
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -33,56 +33,56 @@ class GenericBuilderTest extends TestCase
     #[Test]
     public function itShouldCreateSelectObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Select';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Select';
         $this->assertInstanceOf($className, $this->writer->select());
     }
 
     #[Test]
     public function itShouldCreateInsertObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Insert';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Insert';
         $this->assertInstanceOf($className, $this->writer->insert());
     }
 
 #[Test]
     public function itShouldCreateUpdateObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Update';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Update';
         $this->assertInstanceOf($className, $this->writer->update());
     }
 
 #[Test]
     public function itShouldCreateDeleteObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Delete';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Delete';
         $this->assertInstanceOf($className, $this->writer->delete());
     }
 
 #[Test]
     public function itShouldCreateIntersectObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Intersect';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Intersect';
         $this->assertInstanceOf($className, $this->writer->intersect());
     }
 
 #[Test]
     public function itShouldCreateMinusObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Minus';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Minus';
         $this->assertInstanceOf($className, $this->writer->minus(new Select('table1'), new Select('table2')));
     }
 
 #[Test]
     public function itShouldCreateUnionObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\Union';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\Union';
         $this->assertInstanceOf($className, $this->writer->union());
     }
 
 #[Test]
     public function itShouldCreateUnionAllObject()
     {
-        $className = '\NilPortugues\Sql\QueryBuilder\Manipulation\UnionAll';
+        $className = '\EdituraEDU\Sql\QueryBuilder\Manipulation\UnionAll';
         $this->assertInstanceOf($className, $this->writer->unionAll());
     }
 

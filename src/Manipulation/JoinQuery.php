@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\Where;
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
-use NilPortugues\Sql\QueryBuilder\Syntax\SyntaxFactory;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Where;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Syntax\SyntaxFactory;
 
 /**
  * Class JoinQuery.
@@ -233,7 +233,7 @@ class JoinQuery
     }
 
     /**
-     * @return \NilPortugues\Sql\QueryBuilder\Syntax\Where
+     * @return \EdituraEDU\Sql\QueryBuilder\Syntax\Where
      */
     public function getJoinCondition()
     {
@@ -241,7 +241,7 @@ class JoinQuery
     }
 
     /**
-     * @param \NilPortugues\Sql\QueryBuilder\Syntax\Where $joinCondition
+     * @param \EdituraEDU\Sql\QueryBuilder\Syntax\Where $joinCondition
      *
      * @return $this
      */

@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Manipulation;
+namespace EdituraEDU\Sql\QueryBuilder\Manipulation;
 
-use NilPortugues\Sql\QueryBuilder\Syntax\OrderBy;
-use NilPortugues\Sql\QueryBuilder\Syntax\QueryPartInterface;
-use NilPortugues\Sql\QueryBuilder\Syntax\SyntaxFactory;
-use NilPortugues\Sql\QueryBuilder\Syntax\Table;
-use NilPortugues\Sql\QueryBuilder\Syntax\Where;
+use EdituraEDU\Sql\QueryBuilder\Syntax\OrderBy;
+use EdituraEDU\Sql\QueryBuilder\Syntax\QueryPartInterface;
+use EdituraEDU\Sql\QueryBuilder\Syntax\SyntaxFactory;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Table;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Where;
 // Builder injects itself into query for convestion to SQL string.
-use NilPortugues\Sql\QueryBuilder\Builder\BuilderInterface;
+use EdituraEDU\Sql\QueryBuilder\Builder\BuilderInterface;
 
 /**
  * Class AbstractBaseQuery.
@@ -29,7 +29,7 @@ abstract class AbstractBaseQuery implements QueryInterface, QueryPartInterface
     protected $comment = '';
 
     /**
-     * @var \NilPortugues\Sql\QueryBuilder\Builder\BuilderInterface
+     * @var \EdituraEDU\Sql\QueryBuilder\Builder\BuilderInterface
      */
     protected $builder;
 

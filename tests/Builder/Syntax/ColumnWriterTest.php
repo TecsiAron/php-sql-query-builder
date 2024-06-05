@@ -10,11 +10,11 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Builder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
-use NilPortugues\Sql\QueryBuilder\Builder\Syntax\ColumnWriter;
-use NilPortugues\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
-use NilPortugues\Sql\QueryBuilder\Syntax\Column;
+use EdituraEDU\Sql\QueryBuilder\Builder\GenericBuilder;
+use EdituraEDU\Sql\QueryBuilder\Builder\Syntax\ColumnWriter;
+use EdituraEDU\Sql\QueryBuilder\Builder\Syntax\PlaceholderWriter;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Column;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -66,7 +66,7 @@ class ColumnWriterTest extends TestCase
 
         $result = $this->columnWriter->writeValueAsColumns($select);
 
-        $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $result[0]);
+        $this->assertInstanceOf('EdituraEDU\Sql\QueryBuilder\Syntax\Column', $result[0]);
     }
 
 #[Test]
@@ -77,7 +77,7 @@ class ColumnWriterTest extends TestCase
 
         $result = $this->columnWriter->writeFuncAsColumns($select);
 
-        $this->assertInstanceOf('NilPortugues\Sql\QueryBuilder\Syntax\Column', $result[0]);
+        $this->assertInstanceOf('EdituraEDU\Sql\QueryBuilder\Syntax\Column', $result[0]);
     }
 
 #[Test]

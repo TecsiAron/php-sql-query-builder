@@ -10,8 +10,8 @@
 
 namespace NilPortugues\Tests\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
-use NilPortugues\Sql\QueryBuilder\Syntax\Where;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Syntax\Where;
 use NilPortugues\Tests\Sql\QueryBuilder\Manipulation\Resources\DummyQuery;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -29,17 +29,17 @@ class WhereTest extends TestCase
     /**
      * @var string
      */
-    protected $whereClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Where';
+    protected $whereClass = '\EdituraEDU\Sql\QueryBuilder\Syntax\Where';
 
     /**
      * @var string
      */
-    protected $columnClass = '\NilPortugues\Sql\QueryBuilder\Syntax\Column';
+    protected $columnClass = '\EdituraEDU\Sql\QueryBuilder\Syntax\Column';
 
     /**
      * @var string
      */
-    protected $queryException = '\NilPortugues\Sql\QueryBuilder\Manipulation\QueryException';
+    protected $queryException = '\EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException';
 
     /**
      *

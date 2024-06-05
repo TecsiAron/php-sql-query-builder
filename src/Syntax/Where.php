@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Sql\QueryBuilder\Syntax;
+namespace EdituraEDU\Sql\QueryBuilder\Syntax;
 
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryException;
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryFactory;
-use NilPortugues\Sql\QueryBuilder\Manipulation\QueryInterface;
-use NilPortugues\Sql\QueryBuilder\Manipulation\Select;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryException;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryFactory;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\QueryInterface;
+use EdituraEDU\Sql\QueryBuilder\Manipulation\Select;
 
 /**
  * Class Where.
